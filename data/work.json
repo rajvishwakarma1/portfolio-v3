@@ -1,0 +1,141 @@
+{
+  "items": [
+    {
+      "slug": "digital-domi",
+      "title": "digital domi",
+      "href": "https://digitaldomi.com",
+      "role": "founding qa engineer",
+      "period": "nov 2025 - present",
+      "description": "building the future of mail 📬",
+      "longDescription": "leading qa at digital domi - figuring out features, fixing bugs, and everything in between",
+      "tags": [
+        "API testing (Swagger)",
+        "Test automation",
+        "Manual testing",
+        "Sentry",
+        "Google Search Console"
+      ],
+      "projects": [
+        {
+          "title": "domi app",
+          "links": [
+            {
+              "label": "web",
+              "href": "https://app.digitaldomi.com"
+            },
+            {
+              "label": "play store",
+              "href": "https://play.google.com/store/apps/details?id=com.digitaldomi.app"
+            },
+            {
+              "label": "app store",
+              "href": "https://apps.apple.com/app/domi"
+            }
+          ],
+          "bullets": [
+            "Led end-to-end manual and automated QA across mobile apps, consumer web, business platforms, and support dashboards, ensuring stable and high-quality releases",
+            "Designed and executed test cases, regression cycles, and API validations while managing bugs, release notes, and changelogs to prevent production issues",
+            "Collaborated with cross functional teams to manage release notes, validate requirements, and ensure smooth, mishap free production releases"
+          ]
+        }
+      ],
+      "logo": "/logos/1766984290030-scvctv.jpg"
+    },
+    {
+      "slug": "wander",
+      "title": "wander",
+      "href": "",
+      "logo": "/logos/1766979994668-h9e0k.jpg",
+      "role": "automation engineer",
+      "period": "apr 2025 - aug 2025",
+      "description": "a better way to travel 🌏",
+      "longDescription": "worked as a freelance automation engineer and collaborated with a team of engineers and designers to ease visa interview scheduling",
+      "tags": [
+        "selenium",
+        "playwright",
+        "patchright",
+        "api development",
+        "api testing"
+      ],
+      "projects": [
+        {
+          "title": "",
+          "links": [],
+          "bullets": [
+            "Built a conversational chatbot for a Bangalore startup to automate interview scheduling",
+            "Developed phased guidance for form-filling and document submission using LLMs and backend APIs",
+            "Enabled personalized user responses by integrating application status and requirements into the chatbot",
+            "Automated repetitive tasks with SeleniumBase and PatchRight to streamline workflows",
+            "Collaborated with startup teams to design intuitive, user-friendly automation solutions"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "elevatoz-loyalty",
+      "title": "elevatoz loyalty",
+      "href": "https://elevatozloyalty.com/index.html",
+      "logo": "/logos/1766981076546-m9dgf9.jpg",
+      "role": "software development intern",
+      "period": "jun 2023 - jul 2023",
+      "description": "driving customer and partner loyalty through software 🤝",
+      "longDescription": "worked as an intern where i developed apis for dealer applications",
+      "tags": [
+        "rest apis",
+        "postman",
+        "api testing",
+        "fastify",
+        "api development"
+      ],
+      "projects": [
+        {
+          "title": "",
+          "links": [
+            {
+              "label": "web",
+              "href": "https://elevatozloyalty.com/index.html"
+            }
+          ],
+          "bullets": [
+            "Developed API modules for mobile applications using Node.js and the Fastify framework",
+            "Built a new component to show summarized user reviews",
+            "Used Proxyman/Postman for endpoint comparison & optimization",
+            "Supported release cycles via Github"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mentiff",
+      "title": "mentiff",
+      "href": "https://www.mentiff.com/",
+      "logo": "/logos/1766992189041-c8yidq.jpg",
+      "role": "founding full stack engineer",
+      "period": "mar 2024 - sep 2024",
+      "description": "talk to people who have been there 🎓",
+      "longDescription": "leading full stack engineering at mentiff building core features across backend and frontend and owning everything in between",
+      "tags": [
+        "Python Django",
+        "React",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "projects": [
+        {
+          "title": "",
+          "links": [
+            {
+              "label": "web",
+              "href": "https://www.mentiff.com/"
+            }
+          ],
+          "bullets": [
+            "Led end to end development across backend and frontend for core platform features, contributing to scalable APIs and responsive user interfaces used by students and mentors",
+            "Designed, built, and integrated backend services using Python Django alongside frontend components in React, ensuring smooth data flow, performance, and reliability",
+            "Collaborated closely with product, design, and engineering teams to translate requirements into production ready features while debugging issues and improving overall system stability"
+          ]
+        }
+      ]
+    }
+  ]
+}

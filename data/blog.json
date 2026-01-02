@@ -1,0 +1,102 @@
+{
+    "items": [
+        {
+            "slug": "rag-is-dead",
+            "title": "rag is dead",
+            "date": "2025-11-20",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "implementing-string-pattern-matching-using-dfas",
+            "title": "implementing string pattern matching using dfas",
+            "date": "2024-07-05",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "ricing-macos",
+            "title": "ricing macos",
+            "date": "2023-11-01",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "how-i-organise-my-life",
+            "title": "how i organise my life",
+            "date": "2023-08-03",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "why-i-switched-from-neovim-to-vscode",
+            "title": "why i switched from neovim to vscode",
+            "date": "2023-06-23",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "everything-i-installed-on-my-new-mac",
+            "title": "everything i installed on my new mac",
+            "date": "2023-06-02",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "rust-not-just-zoom-zoom-fast",
+            "title": "rust: not just zoom zoom fast",
+            "date": "2023-02-25",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "implementing-the-pipe-operator-in-typescript",
+            "title": "implementing the pipe operator in typescript",
+            "date": "2023-01-21",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "expressive-code-with-pattern-matching",
+            "title": "expressive code with pattern matching",
+            "date": "2022-12-29",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "typesafe-database-queries-on-the-edge",
+            "title": "typesafe database queries on the edge",
+            "date": "2022-11-12",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "my-developer-workflow-using-wsl-tmux-and-neovim",
+            "title": "my developer workflow using wsl, tmux and neovim",
+            "date": "2022-08-16",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "t3-stack-and-my-most-popular-open-source-project-ever",
+            "title": "t3 stack and my most popular open source project ever",
+            "date": "2022-06-27",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "create-licenses-for-your-projects-right-from-the-terminal",
+            "title": "create licenses for your projects right from the terminal",
+            "date": "2022-03-25",
+            "excerpt": "",
+            "content": ""
+        },
+        {
+            "slug": "i-made-a-wordle-clone",
+            "title": "i made a wordle clone",
+            "date": "2022-03-21",
+            "excerpt": "",
+            "content": ""
+        }
+    ]
+}

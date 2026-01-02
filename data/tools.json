@@ -1,0 +1,56 @@
+{
+    "categories": {
+        "development": [
+            {
+                "name": "VS Code",
+                "description": "primary code editor with vim keybindings"
+            },
+            {
+                "name": "Warp",
+                "description": "modern terminal with ai features"
+            },
+            {
+                "name": "GitHub Copilot",
+                "description": "ai pair programmer"
+            },
+            {
+                "name": "Arc Browser",
+                "description": "my daily driver for browsing"
+            }
+        ],
+        "design": [
+            {
+                "name": "Figma",
+                "description": "ui/ux design and prototyping"
+            },
+            {
+                "name": "Excalidraw",
+                "description": "quick sketches and diagrams"
+            }
+        ],
+        "productivity": [
+            {
+                "name": "Notion",
+                "description": "notes, docs, and project management"
+            },
+            {
+                "name": "Raycast",
+                "description": "launcher and productivity tool"
+            },
+            {
+                "name": "CleanShot X",
+                "description": "screenshots and screen recording"
+            }
+        ],
+        "hardware": [
+            {
+                "name": "MacBook Air M1",
+                "description": "primary machine"
+            },
+            {
+                "name": "Sony WH-1000XM4",
+                "description": "noise cancelling headphones"
+            }
+        ]
+    }
+}
