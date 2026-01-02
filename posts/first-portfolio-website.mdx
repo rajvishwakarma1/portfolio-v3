@@ -1,0 +1,125 @@
+---
+title: "building my first portfolio website"
+description: "the story of spending three weeks on a portfolio, learning css the painful way, and finally deploying something online."
+date: "September 8, 2021"
+---
+
+every developer has that moment when they decide "i need a portfolio website." for me, that moment came during third semester when everyone started talking about internships and having an "online presence."
+
+## the naive beginning
+
+i had grand visions. animated backgrounds, 3d elements, those fancy scroll effects i saw on awwwards. i was going to build the most impressive student portfolio ever.
+
+reality hit fast.
+
+```css
+/* my first attempt at centering a div */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* none of this worked */
+}
+```
+
+three hours later, i discovered [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). another two hours to understand it.
+
+```css
+/* the revelation */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+```
+
+why didn't anyone tell me this earlier?
+
+## scope creep is real
+
+my initial plan was simple: a landing page with my info and links. what i ended up trying to build:
+
+- animated particle background (because it looked cool)
+- custom cursor effects (why?)
+- typing animation for my name
+- dark/light mode toggle
+- project showcase with hover effects
+- blog section (that i'd never update)
+- contact form with email integration
+
+spoiler: i finished maybe 30% of this.
+
+## the css nightmare
+
+css and i had a toxic relationship during this project. things that should have been simple took hours:
+
+**making the layout responsive:**
+
+```css
+/* me thinking i understood media queries */
+@media screen and (max-width: 768px) {
+    .nav {
+        display: none; /* just hide it lol */
+    }
+}
+```
+
+**getting fonts to work:**
+
+```css
+@font-face {
+    font-family: 'CoolFont';
+    src: url('./fonts/font.woff2');
+    /* why isn't this loading?? */
+}
+```
+
+**that one element that refused to align:**
+
+every. single. time.
+
+> i probably learned more css from stackoverflow answers than any tutorial.
+
+## the deployment saga
+
+after two weeks of on-and-off work, i had something that didn't look terrible. time to put it online.
+
+options i tried:
+
+1. **[github pages](https://pages.github.com/)** — worked after figuring out the branch settings
+2. **[netlify](https://www.netlify.com/)** — drag and drop was magical
+3. **[vercel](https://vercel.com/)** — felt like overkill for a static site
+
+i went with github pages because it felt more "developer-y." the satisfaction of seeing my name followed by `.github.io` was real.
+
+## what i actually learned
+
+looking back, that first portfolio taught me more than any tutorial:
+
+- **css is hard, but it clicks eventually** — flexbox and grid solved 90% of my problems
+- **done is better than perfect** — shipped it with missing features, still felt good
+- **nobody notices the small stuff** — i spent hours on a hover animation that nobody ever mentioned
+- **simple is underrated** — the cleanest portfolios i've seen are the simplest ones
+
+## the iterations
+
+that first portfolio? i rebuilt it. twice. then three more times. each iteration was simpler and better.
+
+version 1: overcomplicated mess with particles
+version 2: still too much animation
+version 3: cleaner, but slow
+version 4: minimal, fast, actually readable
+
+## advice for your first portfolio
+
+if you're building your first portfolio:
+
+1. **start simple** — you can always add features later
+2. **steal designs** — look at portfolios you like, understand what works
+3. **focus on content** — your projects matter more than fancy animations
+4. **just deploy it** — a live simple site beats a perfect local one
+5. **iterate** — your first version will be bad, and that's okay
+
+that first portfolio is probably still archived somewhere on my github. i cringe looking at the code, but i'm grateful for the lessons it taught me.
+
+also, i still don't fully understand css grid. but we're working on it.

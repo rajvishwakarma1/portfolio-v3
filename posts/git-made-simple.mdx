@@ -1,0 +1,215 @@
+---
+title: "git made simple (for my past self)"
+description: "the git concepts i wish someone explained properly when i was starting out. no jargon, just practical stuff."
+date: "June 3, 2022"
+---
+
+when i first encountered git, it felt like learning a foreign language. branches, merges, rebases, detached heads. i just wanted to save my code somewhere safe, why was this so complicated?
+
+this is the explanation i needed back then.
+
+## what git actually is
+
+forget everything else. git is basically:
+1. a system that saves snapshots of your code
+2. lets you go back to any previous snapshot
+3. lets multiple people work on the same code without stepping on each other
+
+that's it. everything else is just variations of these three things.
+
+## the commands you'll actually use
+
+### the daily basics
+
+```bash
+# check what's changed
+git status
+
+# add files to be saved
+git add .              # add everything
+git add filename.js    # add specific file
+
+# save a snapshot (commit)
+git commit -m "describe what you changed"
+
+# push to [github](https://github.com/)/remote
+git push
+```
+
+these four commands cover 80% of daily git usage.
+
+### when you mess up
+
+```bash
+# undo changes in a file (before adding)
+git checkout -- filename.js
+
+# undo the last commit (keeps changes)
+git reset --soft HEAD~1
+
+# completely undo last commit (careful!)
+git reset --hard HEAD~1
+```
+
+### working with branches
+
+```bash
+# create a new branch and switch to it
+git checkout -b new-feature
+
+# switch between branches
+git checkout main
+git checkout new-feature
+
+# merge a branch into current branch
+git merge new-feature
+
+# delete a branch
+git branch -d new-feature
+```
+
+## git explained like you're 5
+
+### commits = save points
+
+think of commits like save points in a video game. you're at level 5, you save. you try fighting the boss, you die. you go back to the save point.
+
+```bash
+git commit -m "before trying the risky thing"
+# try risky thing
+# it breaks everything
+git reset --hard HEAD~1  # go back to save point
+```
+
+> always commit before trying something uncertain. future you will thank you.
+
+### branches = parallel universes
+
+a branch is like a parallel universe where you can try things without affecting the main timeline.
+
+```
+main:        A---B---C
+                  \
+feature:           D---E
+```
+
+you're on main (A-B-C). you create a branch called feature. you make changes (D-E). main is not affected.
+
+if the feature works, you merge it back to main. if it doesn't, you just delete the branch. main is safe either way.
+
+### merging = combining universes
+
+when you merge, you're bringing changes from one branch into another.
+
+```
+# you're on main, you want to merge feature
+git checkout main
+git merge feature
+
+# main now has all the changes from feature
+main:        A---B---C---D---E
+```
+
+### conflicts = when universes collide
+
+sometimes you and someone else edited the same line. git doesn't know which version to keep. so it asks you.
+
+```
+<<<<<<< HEAD
+your version of the line
+=======
+their version of the line
+>>>>>>> feature
+```
+
+you delete the markers and keep what you want. then commit.
+
+## my git workflow
+
+here's what i actually do day-to-day:
+
+```bash
+# morning: get latest changes
+git pull
+
+# work on a feature
+git checkout -b new-feature
+
+# make changes, commit often
+git add .
+git commit -m "add login button"
+git commit -m "style login form"
+git commit -m "add form validation"
+
+# push to remote
+git push -u origin new-feature
+
+# create pull request on github
+# after review, merge to main
+```
+
+## mistakes i made (so you don't have to)
+
+**committing everything at once:**
+```bash
+# bad
+git commit -m "literally everything"
+
+# good
+git commit -m "add user authentication"
+git commit -m "fix password validation"
+git commit -m "add forgot password flow"
+```
+
+small, specific commits = easier to debug and review.
+
+**vague commit messages:**
+```bash
+# bad
+git commit -m "fix"
+git commit -m "update"
+git commit -m "wip"
+
+# good
+git commit -m "fix: login button not responding on mobile"
+```
+
+your future self (and teammates) will read these messages.
+
+**not pulling before pushing:**
+```bash
+# you push, it fails
+# someone else pushed while you were working
+# just pull first
+git pull
+# fix any conflicts
+git push
+```
+
+## the .gitignore file
+
+some files should never be committed:
+
+```bash
+# dependencies
+node_modules/
+
+# environment variables (secrets!)
+.env
+
+# build files
+dist/
+build/
+
+# os files
+.DS_Store
+Thumbs.db
+```
+
+create a `.gitignore` file in your project root. save yourself from accidentally committing node_modules (we've all done it).
+
+## that's basically it
+
+git has a million features, but you don't need most of them. master the basics, and you'll handle 95% of situations.
+
+the rest? google it when you need it. everyone does.

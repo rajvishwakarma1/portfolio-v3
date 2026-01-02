@@ -1,0 +1,126 @@
+---
+title: "why i switched from windows to linux (and back)"
+description: "the classic dev journey of trying linux, struggling with it, falling in love with the terminal, and finding a middle ground."
+date: "April 18, 2022"
+---
+
+every developer has that phase where they think "real programmers use linux." i had that phase. it lasted about three months.
+
+## the trigger
+
+it started when i saw someone's [i3wm rice](https://www.reddit.com/r/unixporn/) on reddit. beautiful tiled windows, minimal design, everything controlled by keyboard. my windows desktop with its bloated taskbar suddenly felt embarrassing.
+
+that weekend, i downloaded [ubuntu](https://ubuntu.com/) and dual-booted.
+
+## day 1: excitement
+
+everything felt fresh. the terminal wasn't just for running node commands, it was the entire experience. i spent hours customizing my bash prompt:
+
+```bash
+# my first attempt at a custom prompt
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# then i discovered oh-my-zsh and felt foolish
+```
+
+installing things through apt felt powerful:
+
+```bash
+sudo apt install vim git nodejs
+```
+
+no more downloading .exe files and clicking through installers. this was how coding was meant to be.
+
+> the first week on linux makes you feel like a hacker. then reality hits.
+
+## week 2: the struggles begin
+
+**wifi drivers didn't work out of the box.** three hours of googling and terminal commands later, i had wifi. but i still don't really understand what i did.
+
+**my trackpad was weird.** gestures that worked on windows? gone. had to install some third-party tool that half-worked.
+
+**microsoft office:** my college required .docx submissions. libreoffice was "compatible" but formatting always broke. ended up dual-booting just for assignments.
+
+**everything required troubleshooting:**
+
+```bash
+# me every time something didn't work
+sudo apt update
+sudo apt upgrade
+# still broken
+*googles error message*
+# finds forum post from 2014
+# tries random command
+# somehow works
+```
+
+## month 2: the terminal love affair
+
+despite the pain, something clicked. i started living in the terminal.
+
+file management:
+```bash
+cd ~/projects
+mkdir new-project && cd $_
+touch index.js
+```
+
+git workflow:
+```bash
+git add . && git commit -m "fix: that bug" && git push
+```
+
+finding files:
+```bash
+find . -name "*.js" | xargs grep "TODO"
+```
+
+the speed of keyboard-driven workflows was addictive. no more clicking through folders.
+
+## the breaking point
+
+around month 3, i had an important assignment due. i was making final edits, and something crashed. i don't even remember what. but i spent 2 hours fixing the system instead of finishing my work.
+
+that's when i realized: linux was fun, but it was costing me time i didn't have.
+
+## the middle ground
+
+here's where i ended up:
+
+**for windows:**
+- [wsl2](https://docs.microsoft.com/en-us/windows/wsl/) (windows subsystem for linux)
+- [windows terminal](https://github.com/microsoft/terminal) with a pretty theme
+- [vs code](https://code.visualstudio.com/) for editing
+
+**the result:** linux terminal experience with windows stability.
+
+```powershell
+# accessing linux from windows
+wsl -d Ubuntu
+
+# now i'm in bash
+cd ~/projects
+npm run dev
+```
+
+best of both worlds. i get the terminal workflow i love, but when i need to submit a word doc or use some windows-only software, i'm not fighting my system.
+
+## what linux taught me
+
+even though i "went back," linux taught me:
+
+1. **the terminal is powerful** — every developer should be comfortable with bash
+2. **customization is a rabbit hole** — fun but time-consuming
+3. **understanding your system matters** — i actually learned what PATH is
+4. **pick the right tool for the job** — sometimes that's linux, sometimes it's not
+5. **wsl is genuinely good** — microsoft did something right
+
+## my current setup
+
+i'm now on windows with wsl2 as my development environment. docker runs in wsl. node runs in wsl. but i edit in windows vs code (with the wsl extension).
+
+it's not "pure" and linux enthusiasts might judge me. but it works. it lets me focus on coding instead of fighting drivers.
+
+that said, i still have a soft spot for linux. maybe one day i'll have a dedicated linux machine for proper development. but for now, wsl is my happy medium.
+
+also, i still don't really understand what `sudo chmod 777` does. i just know it fixes permission errors.

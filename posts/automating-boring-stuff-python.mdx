@@ -1,0 +1,144 @@
+---
+title: "automating boring stuff with python"
+description: "how i went from manual repetitive tasks to writing scripts that do them for me. featuring: google calendar automation and irctc login attempts."
+date: "November 12, 2021"
+---
+
+there's a book called "[automate the boring stuff with python](https://automatetheboringstuff.com/)" that changed how i think about programming. not because i read the whole thing (i didn't), but because the title planted a seed: what if code could do the annoying tasks for me?
+
+## the first automation
+
+it started with something stupid. i was tracking my study hours manually in a spreadsheet, and it was tedious. so i thought, what if i could log time directly from my terminal?
+
+```python
+# my first "automation" script
+import datetime
+
+def log_study_time(subject, hours):
+    with open('study_log.txt', 'a') as f:
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+        f.write(f'{timestamp} - {subject}: {hours} hours\n')
+    print(f'logged {hours} hours for {subject}')
+
+# usage
+log_study_time('DSA', 2)
+```
+
+was it revolutionary? no. did it make me feel like a hacker? absolutely.
+
+## leveling up with apis
+
+the real game changer was learning about apis. suddenly i could interact with actual services, not just text files.
+
+### google calendar integration
+
+i built a script to automatically track my time using [google calendar api](https://developers.google.com/calendar). the idea was simple: create calendar events for different activities, then analyze where my time was going.
+
+```python
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+
+def get_time_spent(calendar_service, start_date, end_date):
+    events = calendar_service.events().list(
+        calendarId='primary',
+        timeMin=start_date,
+        timeMax=end_date,
+        singleEvents=True
+    ).execute()
+    
+    time_by_category = {}
+    for event in events.get('items', []):
+        # parse and categorize events
+        # ... (the actual logic was messier)
+    
+    return time_by_category
+```
+
+setting up google api authentication was painful. the documentation felt like it was written for people who already knew everything. but once it worked, it was magical.
+
+> seeing a weekly report of how i actually spent my time was eye-opening. turns out i wasn't studying as much as i thought.
+
+## the irctc adventure
+
+anyone who's tried booking tatkal tickets on [irctc](https://www.irctc.co.in/) knows the pain. you need to be fast, really fast. so naturally, i tried to automate it.
+
+```python
+# simplified version of what i attempted
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get('https://www.irctc.co.in')
+
+# login
+username_field = driver.find_element_by_id('loginid')
+username_field.send_keys('my_username')
+# ... password, captcha handling, etc.
+```
+
+the captcha was the hard part. i tried:
+- basic ocr (didn't work)
+- finding captcha-solving services (felt sketchy)
+- training a simple model (way over my head)
+
+i never fully automated tatkal booking. but i learned a ton about web automation, selenium, and session management in the process.
+
+## automation ideas that actually worked
+
+not everything was as complex as irctc. here are scripts that i actually use:
+
+**file organizer:**
+```python
+import os
+import shutil
+
+def organize_downloads():
+    downloads = '/path/to/downloads'
+    categories = {
+        'images': ['.jpg', '.png', '.gif'],
+        'documents': ['.pdf', '.doc', '.docx'],
+        'code': ['.py', '.js', '.html']
+    }
+    
+    for file in os.listdir(downloads):
+        ext = os.path.splitext(file)[1].lower()
+        for category, extensions in categories.items():
+            if ext in extensions:
+                shutil.move(
+                    os.path.join(downloads, file),
+                    os.path.join(downloads, category, file)
+                )
+```
+
+**quick note taker:**
+```python
+import sys
+from datetime import datetime
+
+def quick_note():
+    note = ' '.join(sys.argv[1:])
+    with open('quick_notes.md', 'a') as f:
+        f.write(f'\n## {datetime.now().strftime("%Y-%m-%d %H:%M")}\n{note}\n')
+
+if __name__ == '__main__':
+    quick_note()
+```
+
+run it as `python note.py this is my quick thought` and it appends to a markdown file.
+
+## what i learned
+
+automation taught me more than just python:
+
+1. **start with your own problems** — the best automation ideas come from personal annoyances
+2. **learn to read documentation** — apis are powerful once you figure them out
+3. **good enough is good enough** — my scripts aren't perfect, but they save time
+4. **error handling matters** — learned this after scripts crashed at 3am
+5. **sometimes manual is fine** — not everything needs automation
+
+## the automation mindset
+
+now whenever i do something repetitive, a little voice asks: "could this be automated?"
+
+sometimes the answer is no (or "not worth the effort"). but sometimes it leads to scripts that save hours. that mindset shift is the real value of learning automation.
+
+also, i still haven't automated irctc tatkal successfully. if you have, please share your secrets.

@@ -1,0 +1,132 @@
+---
+title: "my first hackathon experience"
+description: "36 hours of no sleep, free pizza, broken code, and somehow winning a prize. lessons from my first hackathon."
+date: "October 28, 2022"
+---
+
+i signed up for my first hackathon expecting to learn something. i left with no sleep, a half-working project, and a third-place certificate. it was chaos, but the good kind.
+
+## before the hackathon
+
+the announcement came through our college coding club. 36-hour hackathon, teams of 4, open theme. the prize was modest but that wasn't the point. i wanted to see if i could actually build something under pressure.
+
+found three teammates:
+- a friend who knew [react](https://react.dev/)
+- someone from another branch who was "good at backend"
+- a random guy who joined because his team bailed
+
+we had never worked together before. this would be interesting.
+
+## hour 0: the panic
+
+theme announced: **"solutions for everyday problems"**
+
+vague enough to be anything. we spent the first two hours just brainstorming:
+
+- "what about a study planner?" (too common)
+- "food delivery app!" (we're not swiggy)
+- "smart attendance system!" (our college already had one)
+
+finally settled on: **a split-expense tracker for hostels**. we all had the pain of splitting chai money among roommates. relatable = good.
+
+## hours 2-10: the grind begins
+
+division of labor happened organically:
+- i handled the frontend (react, obviously overengineered for an mvp)
+- backend guy set up node + express + mongodb
+- random guy worked on the "math" (splitting algorithms, surprisingly complex)
+- react friend... well, he helped me
+
+the first few hours were productive. then reality hit.
+
+```javascript
+// me at hour 6
+const calculateSplit = (expenses, members) => {
+    // this should be simple
+    // why is it not simple
+    // who owes whom what amount???
+}
+```
+
+> the settling algorithm (figuring out minimum transactions to settle all debts) took us 4 hours. we could've googled it earlier.
+
+## hours 10-20: things break
+
+around midnight, everything started falling apart:
+
+**the database crashed.** something about connection limits. backend guy was panicking.
+
+**our merge had conflicts.** three people pushing to main without pulling. classic.
+
+**the ui looked terrible.** i was focusing on functionality, forgot that judges would see this.
+
+```css
+/* my css at 2am */
+.button {
+    /* why won't you center */
+    margin: auto;
+    text-align: center;
+    /* please */
+    display: flex;
+    justify-content: center;
+    /* i hate css */
+}
+```
+
+pizza arrived at 1am. temporary morale boost. then back to debugging.
+
+## hours 20-30: the comeback
+
+something magical happens when you're sleep-deprived and caffeinated. you stop overthinking.
+
+- backend: simplified the database schema. worked.
+- frontend: copied a css template. looked decent.
+- the algorithm: finally made sense after random guy explained it with money emoji on the whiteboard.
+
+by hour 28, we had a working demo. barely.
+
+## hours 30-36: polish and pray
+
+last stretch. focused on:
+- making the demo flow smooth (practiced what to click, what to show)
+- fixing the most obvious bugs
+- adding a logo ([canva](https://www.canva.com/), 10 minutes)
+- writing a README (github requires it, apparently important)
+
+submitted with 30 minutes to spare. then crashed on chairs for a power nap.
+
+## the presentations
+
+watching other teams present was humbling. some had ar/vr features. some had ml models. we had a calculator that told you who owes whom money.
+
+but when we presented, something clicked. the judges related to the problem. they'd split bills with friends too. our demo worked (mostly). we could explain why we built it.
+
+> hackathons aren't about having the most advanced tech. they're about solving a real problem convincingly.
+
+## the result
+
+third place. certificate, small cash prize, and more importantly: proof that we could build something under pressure.
+
+the project was rough. the code was spaghetti. but it worked, and we made it in 36 hours.
+
+## what i learned
+
+**teamwork under pressure is different.** no time for proper planning. you just divide and trust.
+
+**scope down aggressively.** our original idea had accounts, friend requests, notification reminders. we shipped with basic input and calculations.
+
+**demo > code quality.** judges see the demo, not your elegant async/await. make the demo work.
+
+**sleep is optional, but judgment suffers.** some of our 3am decisions were... questionable.
+
+**just submit something.** imperfect and submitted beats perfect and unfinished.
+
+## would i do it again?
+
+absolutely. that hackathon was one of the most fun, stressful, rewarding experiences of college. no class teaches you to build and ship in 36 hours.
+
+the project is still on my github. the code is embarrassing. but the memory is golden.
+
+if you're thinking about joining a hackathon: do it. worst case, you get free pizza and a story. best case, you build something cool and win something.
+
+also, learn the split-expense algorithm before you need it at 2am.

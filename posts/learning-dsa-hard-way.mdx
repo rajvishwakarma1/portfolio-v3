@@ -1,0 +1,110 @@
+---
+title: "learning dsa the hard way"
+description: "data structures felt useless until they weren't. my messy journey through arrays, linked lists, and finally understanding why this stuff matters."
+date: "July 22, 2021"
+---
+
+i used to think dsa was just something colleges forced us to learn so they could fail us in exams. like, when am i ever going to use a linked list in real life?
+
+spoiler: i was wrong. very wrong.
+
+## the "i'll never use this" phase
+
+my first encounter with data structures was painful. our professor was explaining pointers in C, and half the class (including me) was completely lost.
+
+```c
+// what i thought was happening
+int *ptr = &value;
+// what was actually happening
+// ¯\_(ツ)_/¯
+```
+
+i passed the exam by memorizing stuff. linked list insertion? memorized the steps. tree traversals? memorized. didn't understand any of it.
+
+## the wake-up call
+
+things changed when i started doing competitive programming. not seriously, just solving random problems on [hackerrank](https://www.hackerrank.com/) because everyone was doing it.
+
+first problem: find if an array contains duplicates.
+
+my solution:
+
+```python
+# O(n²) because i didn't know better
+def hasDuplicates(arr):
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            if arr[i] == arr[j]:
+                return True
+    return False
+```
+
+it worked! felt like a genius. then i saw someone's solution using a set (O(n)), and i felt very, very dumb.
+
+```python
+# the "oh" moment
+def hasDuplicates(arr):
+    return len(arr) != len(set(arr))
+```
+
+> that was when i realized knowing the right data structure isn't about being smart. it's about solving problems efficiently.
+
+## actually understanding stuff
+
+here's what helped me finally "get" dsa:
+
+### visualizing everything
+
+i started drawing every data structure. linked lists with arrows, trees with levels, graphs with nodes. my notebooks looked like abstract art, but it helped.
+
+### building things, not just solving problems
+
+instead of grinding leetcode mindlessly, i tried building:
+
+- a simple autocomplete using tries
+- a task scheduler using priority queues
+- a basic file system navigation using trees
+
+suddenly these abstract concepts had real applications.
+
+### teaching others
+
+when my juniors asked for help, explaining concepts to them forced me to actually understand them. if you can't explain it simply, you don't understand it well enough.
+
+## what actually matters
+
+after grinding through hundreds of problems, here's what i think is actually important:
+
+**fundamentals that come up everywhere:**
+- arrays and hashmaps (like, 70% of problems)
+- two pointers and sliding window
+- basic recursion and backtracking
+- trees and graphs (bfs/dfs)
+
+**stuff that's more rare but good to know:**
+- dynamic programming (only for certain types of companies)
+- advanced graph algorithms
+- complex tree operations
+
+## the interview reality
+
+when placement season came, dsa knowledge actually saved me. not because i could recite the algorithm for dijkstra's, but because i could think about problems in terms of:
+
+- what's the brute force approach?
+- where's the repeated work?
+- what data structure helps here?
+- what's the time/space tradeoff?
+
+## my advice
+
+if you're struggling with dsa (like i was):
+
+1. **don't just memorize** — understand WHY an approach works
+2. **draw everything** — visualization is underrated
+3. **build mini-projects** — applying dsa concepts makes them stick
+4. **start simple** — master arrays and hashmaps before touching dp
+5. **it's okay to look at solutions** — but understand them before moving on
+
+dsa isn't about becoming a human computer. it's about recognizing patterns and knowing which tool fits which problem. that takes time and practice.
+
+and yes, you will eventually use a hashmap in real life. probably today.

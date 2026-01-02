@@ -1,0 +1,121 @@
+---
+title: "building a student community website"
+description: "the story of building a platform for my college, learning teamwork, and realizing that code is the easy part."
+date: "August 5, 2022"
+---
+
+during my second year, a few friends and i decided to build a website for students in our college. a place to share notes, connect with seniors, find resources. simple idea. turned out to be way more than a coding project.
+
+## the idea
+
+it started in a group chat. someone complained about not finding notes for a subject. another person mentioned a senior who had great resources but no way to share them. and then someone said the magic words:
+
+"we should build something for this."
+
+two weeks later, we were actually doing it.
+
+## the team
+
+we had four people:
+- me (frontend + "full stack when needed")
+- one guy who knew backend (kind of)
+- one guy who knew design (sort of)
+- one guy who was "learning but enthusiastic"
+
+classic college team. nobody was an expert, but we were going to figure it out.
+
+## the tech decisions
+
+first meeting was about tech stack. spent two hours debating:
+
+```
+me: let's use react
+backend guy: but i only know node with ejs
+designer: can't we just use wordpress?
+learner: what's a tech stack?
+```
+
+we ended up with:
+- html/css/js for frontend (simple wins)
+- [node.js](https://nodejs.org/) + [express](https://expressjs.com/) for backend
+- [mongodb](https://www.mongodb.com/) for database (because it's easy to set up)
+- [github](https://github.com/) for collaboration
+
+looking back, we overcomplicated some things and undercomplicated others. but we shipped.
+
+## the actual building
+
+### version 1: the mess
+
+first working version took a month. it was ugly. the css was inconsistent. the code had no structure. but it worked.
+
+```html
+<!-- actual code from v1 -->
+<div class="container">
+    <div class="row">
+        <div style="margin-left: 20px; color: blue;">
+            <!-- inline styles everywhere -->
+        </div>
+    </div>
+</div>
+```
+
+we were so proud.
+
+### version 2: slightly less mess
+
+after showing it to some friends, we got feedback:
+- "it's hard to navigate"
+- "why doesn't login work sometimes?"
+- "can you add dark mode?"
+
+we fixed some things. broke others. shipped anyway.
+
+> building for real users is different from building for yourself. feedback hits different.
+
+## the non-code challenges
+
+the technical stuff was actually the easiest part. the hard parts:
+
+**coordination:** four people with different schedules. one guy would work at 2am, another only had time on weekends. syncing was chaos.
+
+**scope creep:** every week someone had a new feature idea. "what if we add chat?" "what about a marketplace?" we had to learn to say no.
+
+**motivation dips:** after the initial excitement, there were weeks where nobody touched the code. real life got in the way.
+
+**the "it's on my system" problem:**
+```
+// works on my machine
+// breaks on yours
+// neither of us knows why
+```
+
+**user adoption:** building something is one thing. getting people to use it is another. we had to actually promote it, make posters, convince people it was useful.
+
+## what i learned
+
+this project taught me more than any course:
+
+1. **communication > code** — most problems were coordination issues, not technical ones
+2. **start small, ship fast** — our mvp was embarrassingly simple, but it was alive
+3. **real users = real feedback** — you don't know what's wrong until someone complains
+4. **git is essential** — we had so many merge conflicts, but at least we had git
+5. **finishing is harder than starting** — the last 20% takes 80% of the time
+
+## the outcome
+
+the website ran for about a year. a few hundred students used it. it wasn't a startup success story. but it was something real that we built.
+
+more importantly:
+- i learned how to work in a team
+- i understood the gap between "a feature" and "a finished product"
+- i had something real to show in interviews
+- i made friends through the project
+
+## the code still exists
+
+the repository is still on my github. sometimes i look at the code and cringe. but i also remember the late-night debugging sessions, the excitement when features worked, the pizza celebrations after deployments.
+
+that messy codebase represents growth. and that's worth more than clean architecture.
+
+if you're thinking about building something with friends, do it. the project might fail, but the experience won't.
