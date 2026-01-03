@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 const navItems = [
     { href: "/", label: "home", key: "h" },
+    { href: "/work", label: "work", key: "w" },
     { href: "/blog", label: "blog", key: "b" },
     { href: "/projects", label: "projects", key: "p" },
     { href: "/tools", label: "tools", key: "t" },
@@ -23,17 +24,25 @@ export function Navbar() {
 
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
-            // Don't trigger if any input elements are focused or if event target is an input
+            // Don't trigger if any input elements are focused
             if (
                 document.activeElement?.tagName === "INPUT" ||
                 document.activeElement?.tagName === "TEXTAREA" ||
-                event.target instanceof HTMLInputElement
+                (document.activeElement as HTMLElement)?.isContentEditable
             ) {
                 return
             }
 
-            const item = navItems.find(i => i.key === event.key.toLowerCase())
-            if (item) router.push(item.href)
+            // Ignore if modifier keys are pressed
+            if (event.ctrlKey || event.metaKey || event.altKey) return
+
+            const pressedKey = event.key.toLowerCase()
+            const item = navItems.find(i => i.key === pressedKey)
+
+            if (item) {
+                event.preventDefault()
+                router.push(item.href)
+            }
         }
 
         window.addEventListener("keydown", handleKeyPress)
@@ -80,7 +89,7 @@ export function Navbar() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                prefetch={item.href === "/blog"}
+                                prefetch={true}
                                 className="hover:text-accent transition-colors duration-200 flex items-center"
                             >
                                 <span className="text-gray-500">[</span>

@@ -23,7 +23,7 @@ export default async function WorkPage({
         <div className="animate-fade-in">
             {/* Back link */}
             <Link
-                href="/"
+                href="/work"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-accent transition-colors duration-200 mb-8"
             >
                 <ArrowLeft className="w-4 h-4" />

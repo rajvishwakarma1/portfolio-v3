@@ -123,15 +123,16 @@ export function ProjectsNav() {
 
     return (
         <div
-            className="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden lg:flex items-center"
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden lg:flex items-center pr-4"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Expanded menu */}
+            {/* Expanded menu - absolutely positioned */}
             <div
                 className={`
+          absolute right-full mr-4 top-1/2 -translate-y-1/2
           bg-neutral-900/90 backdrop-blur-sm border border-neutral-800 rounded-lg
-          py-3 px-4 min-w-[120px] mr-4
+          py-3 px-4 min-w-[120px]
           transition-all duration-300 ease-out
           ${isHovered ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}
         `}
@@ -151,7 +152,7 @@ export function ProjectsNav() {
             </div>
 
             {/* Indicator bars */}
-            <div className="flex flex-col gap-2 items-end pr-4">
+            <div className="flex flex-col gap-2 items-end">
                 {projects.map((project) => (
                     <button
                         key={project.slug}

@@ -1,9 +1,10 @@
 import Link from "next/link"
-import { Briefcase } from "lucide-react"
+import { Briefcase, ArrowUpRight } from "lucide-react"
 import { getWorkItems } from "@/lib/work"
 
 export function WorkSection() {
     const workItems = getWorkItems()
+    const recentItems = workItems.slice(0, 2) // Only show top 2 recent items
 
     return (
         <section id="work" className="mb-16 animate-fade-in-up">
@@ -11,7 +12,7 @@ export function WorkSection() {
                 <Briefcase className="w-5 h-5 mr-2" /> work
             </h2>
             <div className="space-y-8">
-                {workItems.map((item) => (
+                {recentItems.map((item) => (
                     <div key={item.slug} className="group">
                         <Link href={`/work/${item.slug}`}>
                             <h3 className="text-xl font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200">
@@ -25,6 +26,15 @@ export function WorkSection() {
                     </div>
                 ))}
             </div>
+            {workItems.length > 2 && (
+                <Link
+                    href="/work"
+                    className="inline-flex items-center gap-1 mt-6 text-accent hover:underline group"
+                >
+                    all work{" "}
+                    <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </Link>
+            )}
         </section>
     )
 }
