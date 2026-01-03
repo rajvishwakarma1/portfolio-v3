@@ -10,6 +10,7 @@ import { ProjectsNav } from "../components/projects-nav"
 import { CustomCursor } from "../components/custom-cursor"
 import { ToolsNav } from "../components/tools-nav"
 import { BackspaceNavigation } from "../components/backspace-navigation"
+import { Preloader } from "../components/preloader"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
+        <Preloader />
         <DocumentTitleChanger />
         <CustomCursor />
         <BackspaceNavigation />
