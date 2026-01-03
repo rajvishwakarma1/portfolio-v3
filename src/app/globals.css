@@ -39,11 +39,6 @@ body {
   }
 }
 
-/* Font display optimization */
-@font-face {
-  font-display: swap;
-}
-
 /* Hide default scrollbar but keep scroll functionality */
 html {
   scrollbar-width: none;
