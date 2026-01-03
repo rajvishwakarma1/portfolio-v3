@@ -1,6 +1,50 @@
+"use client"
+
 import Link from "next/link"
+import { useState } from "react"
 import { ScrambleTextHover } from "@/components/scramble-text-hover"
 import { MapPin, Building2, FileText, CornerDownLeft } from "lucide-react"
+
+function LinkWithPreview({ href, children }: { href: string; children: React.ReactNode }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <span className="relative inline-block">
+      <Link
+        href={href}
+        target="_blank"
+        className="hover:text-accent transition-colors duration-200"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {children}
+      </Link>
+      {/* Preview popup */}
+      <div
+        className={`
+          absolute left-0 top-full mt-2 z-50
+          w-72 rounded-lg overflow-hidden
+          border border-neutral-700 bg-neutral-900
+          shadow-2xl shadow-black/50
+          transition-all duration-300 ease-out
+          ${isHovered ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}
+        `}
+      >
+        <video
+          src="/digitaldomi.webm"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-auto"
+        />
+        <div className="px-3 py-2 text-xs text-gray-400 border-t border-neutral-800">
+          digitaldomi.com
+        </div>
+      </div>
+    </span>
+  )
+}
 
 export function Header() {
   return (
@@ -17,7 +61,7 @@ export function Header() {
         </div>
         <div className="flex items-center gap-2">
           <Building2 className="w-4 h-4" />
-          founding qa engineer <Link href="https://digitaldomi.com/" target="_blank" className="hover:text-accent transition-colors duration-200">@digital domi</Link>
+          founding qa engineer <LinkWithPreview href="https://digitaldomi.com/">@digital domi</LinkWithPreview>
         </div>
       </div>
       <p className="leading-relaxed animate-fade-in-up">
