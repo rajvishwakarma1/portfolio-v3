@@ -13,30 +13,30 @@ export function Preloader() {
 
         let currentProgress = 0
 
-        // Animate progress counter
+        // Animate progress counter - faster for better perceived performance
         const animateProgress = () => {
             if (currentProgress < 100) {
-                currentProgress += Math.floor(Math.random() * 5) + 2
+                currentProgress += Math.floor(Math.random() * 10) + 5 // Faster increments
                 if (currentProgress > 100) currentProgress = 100
                 setProgress(currentProgress)
-                setTimeout(animateProgress, 100)
+                setTimeout(animateProgress, 50) // Faster updates
             } else {
-                // Slide up after reaching 100%
+                // Slide up after reaching 100% - shorter delay
                 setTimeout(() => {
                     gsap.to("#preloader", {
                         yPercent: -100,
-                        duration: 0.8,
+                        duration: 0.6, // Slightly faster
                         ease: "power3.inOut",
                         onComplete: () => {
                             setIsLoading(false)
                         },
                     })
-                }, 400)
+                }, 200)
             }
         }
 
-        // Start after a brief delay
-        setTimeout(animateProgress, 300)
+        // Start almost immediately
+        setTimeout(animateProgress, 50)
 
         return () => { }
     }, [])

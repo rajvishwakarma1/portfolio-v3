@@ -2,8 +2,7 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   experimental: {
-    // ppr: true,
-    // reactCompiler: true,
+    reactCompiler: true,
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -20,7 +19,10 @@ const nextConfig: NextConfig = {
         pathname: "/a/09ir0bgwfb/**",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
+  compress: true,
+  poweredByHeader: false,
 }
 
 export default nextConfig

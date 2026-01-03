@@ -9,9 +9,22 @@ export function CustomCursor() {
     const [isHovering, setIsHovering] = useState(false)
     const [isClicking, setIsClicking] = useState(false)
     const [isVisible, setIsVisible] = useState(false)
+    const [isMobile, setIsMobile] = useState(true) // Default to true to avoid flash
     const pathname = usePathname()
     const animationRef = useRef<number | undefined>(undefined)
     const positionRef = useRef({ x: 0, y: 0 })
+
+    // Detect if device is touch/mobile - skip cursor entirely for performance
+    useEffect(() => {
+        const checkDevice = () => {
+            const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+            const isSmallScreen = window.innerWidth < 1024
+            setIsMobile(hasTouchScreen || isSmallScreen)
+        }
+        checkDevice()
+        window.addEventListener('resize', checkDevice)
+        return () => window.removeEventListener('resize', checkDevice)
+    }, [])
 
     // Function to check if cursor is over a clickable element
     const checkIfHovering = () => {
@@ -105,8 +118,8 @@ export function CustomCursor() {
         }
     }, [])
 
-    // Hide on admin pages
-    if (pathname?.startsWith("/admin")) {
+    // Hide on admin pages or mobile devices
+    if (pathname?.startsWith("/admin") || isMobile) {
         return null
     }
 

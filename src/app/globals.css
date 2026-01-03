@@ -7,9 +7,41 @@
   --foreground: #d1d5db;
 }
 
+/* GPU acceleration hints for smoother animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
+  text-rendering: optimizeLegibility;
+}
+
+/* Enable GPU acceleration for fixed positioned elements */
+[style*="position: fixed"],
+.fixed {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Font display optimization */
+@font-face {
+  font-display: swap;
 }
 
 /* Hide default scrollbar but keep scroll functionality */
