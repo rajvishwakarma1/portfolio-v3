@@ -41,32 +41,6 @@
       "livePreviewUrl": "https://www.stormej.me/projects/turi",
       "youtubeUrl": "",
       "diagrams": []
-    },
-    {
-      "slug": "demo-1",
-      "title": "demo 1",
-      "role": "fd",
-      "description": "fcdx",
-      "longDescription": "",
-      "href": "",
-      "tags": [],
-      "links": [],
-      "livePreviewUrl": "",
-      "youtubeUrl": "",
-      "diagrams": []
-    },
-    {
-      "slug": "demo-2",
-      "title": "demo 2",
-      "role": "d3wd",
-      "description": "dewd",
-      "longDescription": "",
-      "href": "",
-      "tags": [],
-      "links": [],
-      "livePreviewUrl": "",
-      "youtubeUrl": "",
-      "diagrams": []
     }
   ]
 }
