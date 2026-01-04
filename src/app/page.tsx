@@ -3,6 +3,7 @@ import { Item, SectionList } from "@/components/section-list"
 import { BlogSection } from "@/components/blog-section"
 import { LinksSection } from "@/components/links-section"
 import { WorkSection } from "@/components/work-section"
+import { GitHubContributions } from "@/components/github-contributions"
 import { getProjects } from "@/lib/projects"
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
+      <GitHubContributions username="rajvishwakarma1" />
       <WorkSection />
       <BlogSection />
       <SectionList

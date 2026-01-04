@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { usePathname } from "next/navigation"
 
 interface Project {
@@ -14,6 +14,21 @@ export function ProjectsNav() {
     const [activeProject, setActiveProject] = useState<string | null>(null)
     const pathname = usePathname()
     const isClickScrolling = useRef(false)
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    const handleMouseEnter = useCallback(() => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current)
+            hoverTimeoutRef.current = null
+        }
+        setIsHovered(true)
+    }, [])
+
+    const handleMouseLeave = useCallback(() => {
+        hoverTimeoutRef.current = setTimeout(() => {
+            setIsHovered(false)
+        }, 150)
+    }, [])
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -124,8 +139,8 @@ export function ProjectsNav() {
     return (
         <div
             className="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden lg:flex items-center pr-4"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             {/* Expanded menu - absolutely positioned */}
             <div

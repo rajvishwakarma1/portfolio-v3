@@ -11,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "babel-plugin-react-compiler": "^19.0.0-beta-a7bf2bd-20241110",
+    "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "lucide-react": "^0.456.0",
     "next": "16.0.7",
@@ -20,6 +21,7 @@
     "react-dom": "19.2.1",
     "react-github-calendar": "^5.0.4",
     "shiki": "^1.22.2",
+    "tailwind-merge": "^3.4.0",
     "use-scramble": "^2.2.15"
   },
   "devDependencies": {

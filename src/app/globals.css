@@ -112,3 +112,27 @@ html::-webkit-scrollbar {
 .project-highlight .project-arrow {
   color: #8B5CF6 !important;
 }
+
+/* GitHub Calendar Scrollbar */
+.github-calendar-container {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.github-calendar-container::-webkit-scrollbar {
+  height: 6px;
+  display: block;
+}
+
+.github-calendar-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.github-calendar-container::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 3px;
+}
+
+.github-calendar-container::-webkit-scrollbar-thumb:hover {
+  background-color: #444;
+}
