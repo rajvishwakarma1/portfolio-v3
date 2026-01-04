@@ -21,9 +21,9 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Link href={`/projects/${slug}`} className="block">
-      <div className="project-card group border border-gray-800 p-6 transition-all duration-300 hover:border-accent/50 cursor-pointer">
+      <div className="project-card group border border-gray-800 p-4 sm:p-6 transition-all duration-300 hover:border-accent/50 cursor-pointer">
         <div className="flex justify-between items-start mb-4">
-          <h2 className="text-2xl font-bold text-white group-hover:text-accent transition-colors project-title">
+          <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-accent transition-colors project-title">
             {title}
           </h2>
           <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors project-arrow" />

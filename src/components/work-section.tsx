@@ -7,15 +7,15 @@ export function WorkSection() {
     const recentItems = workItems.slice(0, 2) // Only show top 2 recent items
 
     return (
-        <section id="work" className="mb-16 animate-fade-in-up">
-            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
+        <section id="work" className="mb-12 sm:mb-16 animate-fade-in-up">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center text-white">
                 <Briefcase className="w-5 h-5 mr-2" /> work
             </h2>
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
                 {recentItems.map((item) => (
                     <div key={item.slug} className="group">
                         <Link href={`/work/${item.slug}`}>
-                            <h3 className="text-xl font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200">
+                            <h3 className="text-lg sm:text-xl font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200">
                                 {item.title}
                             </h3>
                             <p className="text-sm text-gray-400 mb-2">
