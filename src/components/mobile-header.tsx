@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Volume2, VolumeX } from "lucide-react"
+import { useAudio } from "./audio-context"
 
 // Map paths to their initials
 const pageInitials: { [key: string]: string } = {
@@ -26,6 +27,7 @@ export function MobileHeader() {
     const [isVisible, setIsVisible] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const pathname = usePathname()
+    const { isPlaying, toggleAudio } = useAudio()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -137,6 +139,28 @@ export function MobileHeader() {
                             </Link>
                         )
                     })}
+
+                    {/* Sound Toggle */}
+                    <button
+                        onClick={toggleAudio}
+                        className={`
+                            mt-8 py-4 flex items-center gap-3 text-xl font-medium
+                            transition-all duration-200
+                            ${isPlaying ? "text-accent" : "text-gray-400 hover:text-white"}
+                        `}
+                        style={{
+                            transitionDelay: isMenuOpen ? `${navItems.length * 50}ms` : "0ms",
+                            transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
+                            opacity: isMenuOpen ? 1 : 0,
+                        }}
+                        aria-label={isPlaying ? "Mute ambient music" : "Play ambient music"}
+                    >
+                        {isPlaying ? (
+                            <><Volume2 className="w-5 h-5" /> sound on</>
+                        ) : (
+                            <><VolumeX className="w-5 h-5" /> sound off</>
+                        )}
+                    </button>
                 </nav>
             </div>
         </>

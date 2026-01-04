@@ -6,6 +6,7 @@ import { DocumentTitleChanger } from "../components/document-title-changer"
 import { ScrollNav } from "../components/scroll-nav"
 import { ScrollPainter } from "../components/scroll-painter"
 import { AmbientAudio } from "../components/ambient-audio"
+import { AudioProvider } from "../components/audio-context"
 import { ProjectsNav } from "../components/projects-nav"
 import { CustomCursor } from "../components/custom-cursor"
 import { ToolsNav } from "../components/tools-nav"
@@ -62,21 +63,23 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
         <PostHogProvider>
-          <Preloader />
-          <ScrollToTop />
-          <DocumentTitleChanger />
-          <CustomCursor />
-          <BackspaceNavigation />
-          <ScrollPainter />
-          <ScrollNav />
-          <ProjectsNav />
-          <ToolsNav />
-          <AmbientAudio />
-          <MobileHeader />
-          <div className="max-w-3xl mx-auto px-4 py-8">
-            <Navbar />
-            {children}
-          </div>
+          <AudioProvider>
+            <Preloader />
+            <ScrollToTop />
+            <DocumentTitleChanger />
+            <CustomCursor />
+            <BackspaceNavigation />
+            <ScrollPainter />
+            <ScrollNav />
+            <ProjectsNav />
+            <ToolsNav />
+            <AmbientAudio />
+            <MobileHeader />
+            <div className="max-w-3xl mx-auto px-4 py-8">
+              <Navbar />
+              {children}
+            </div>
+          </AudioProvider>
         </PostHogProvider>
       </body>
     </html>
