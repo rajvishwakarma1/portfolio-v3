@@ -33,7 +33,7 @@ export function ScrollPainter() {
     }
 
     return (
-        <div className="fixed left-0 top-0 h-screen z-40">
+        <div className="fixed left-0 top-0 h-screen z-40 hidden lg:block">
             {/* Progress line */}
             <div className="absolute left-0 top-0 w-0.5 h-full bg-neutral-800">
                 <div
