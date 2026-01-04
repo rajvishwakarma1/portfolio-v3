@@ -13,6 +13,7 @@ import { BackspaceNavigation } from "../components/backspace-navigation"
 import { Preloader } from "../components/preloader"
 import { ScrollToTop } from "../components/scroll-to-top"
 import { MobileHeader } from "../components/mobile-header"
+import { PostHogProvider } from "../components/posthog-provider"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -60,21 +61,23 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
-        <Preloader />
-        <ScrollToTop />
-        <DocumentTitleChanger />
-        <CustomCursor />
-        <BackspaceNavigation />
-        <ScrollPainter />
-        <ScrollNav />
-        <ProjectsNav />
-        <ToolsNav />
-        <AmbientAudio />
-        <MobileHeader />
-        <div className="max-w-3xl mx-auto px-4 py-8">
-          <Navbar />
-          {children}
-        </div>
+        <PostHogProvider>
+          <Preloader />
+          <ScrollToTop />
+          <DocumentTitleChanger />
+          <CustomCursor />
+          <BackspaceNavigation />
+          <ScrollPainter />
+          <ScrollNav />
+          <ProjectsNav />
+          <ToolsNav />
+          <AmbientAudio />
+          <MobileHeader />
+          <div className="max-w-3xl mx-auto px-4 py-8">
+            <Navbar />
+            {children}
+          </div>
+        </PostHogProvider>
       </body>
     </html>
   )
