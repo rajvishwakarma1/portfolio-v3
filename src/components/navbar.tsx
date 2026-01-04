@@ -57,6 +57,7 @@ export function Navbar() {
     return (
         <>
             <style jsx>{`
+                /* Desktop styles (default) */
                 @keyframes blink {
                     0%, 50% { opacity: 1; }
                     51%, 100% { opacity: 0; }
@@ -74,6 +75,26 @@ export function Navbar() {
                 .nav-label.expanded {
                     max-width: 100px;
                 }
+                
+                /* Mobile & Tablet styles */
+                @media (max-width: 1023px) {
+                    .nav-key-bracket {
+                        display: none !important;
+                    }
+                    .cursor-blink {
+                        display: none !important;
+                    }
+                    .nav-label {
+                        max-width: none !important;
+                        overflow: visible !important;
+                    }
+                    .nav-link {
+                        padding-bottom: 2px;
+                    }
+                    .nav-link-active {
+                        border-bottom: 1px solid currentColor;
+                    }
+                }
             `}</style>
             <nav
                 className="flex items-center justify-between mb-12 text-sm"
@@ -90,13 +111,13 @@ export function Navbar() {
                                 key={item.href}
                                 href={item.href}
                                 prefetch={true}
-                                className="hover:text-accent transition-colors duration-200 flex items-center"
+                                className={`hover:text-accent transition-colors duration-200 flex items-center nav-link ${active ? 'nav-link-active' : ''}`}
                             >
-                                <span className="text-gray-500">[</span>
-                                <span>{item.key}</span>
-                                <span className="text-gray-500">]</span>
+                                <span className="text-gray-500 nav-key-bracket">[</span>
+                                <span className="nav-key-bracket">{item.key}</span>
+                                <span className="text-gray-500 nav-key-bracket">]</span>
                                 <span className={`nav-label ${showExpanded ? 'expanded' : ''}`}>
-                                    &nbsp;{item.label}
+                                    <span className="hidden lg:inline">&nbsp;</span>{item.label}
                                 </span>
                                 {active && (
                                     <span className="cursor-blink text-white">|</span>
