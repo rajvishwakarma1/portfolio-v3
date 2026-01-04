@@ -52,19 +52,22 @@ export function Preloader() {
             ref={loaderRef}
             style={{
                 height: "100vh",
-                width: "100%",
+                width: "100vw",
                 position: "fixed",
                 top: 0,
                 left: 0,
                 backgroundColor: "#111",
                 zIndex: 9999,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                overflow: "hidden",
             }}
         >
-            {/* Brand name container */}
-            <div style={{ position: "relative", display: "inline-block" }}>
+            {/* Brand name container - centered with absolute positioning */}
+            <div style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+            }}>
                 {/* Empty/unfilled text (dark gray) */}
                 <h1
                     style={{
