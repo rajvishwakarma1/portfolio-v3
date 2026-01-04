@@ -17,8 +17,14 @@ export async function POST(request: NextRequest) {
         // Generate unique filename
         const ext = file.name.split(".").pop()
         const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${ext}`
-        const filepath = path.join(process.cwd(), "public", "logos", filename)
+        const logosDir = path.join(process.cwd(), "public", "logos")
 
+        // Ensure the logos directory exists
+        if (!fs.existsSync(logosDir)) {
+            fs.mkdirSync(logosDir, { recursive: true })
+        }
+
+        const filepath = path.join(logosDir, filename)
         fs.writeFileSync(filepath, buffer)
 
         return NextResponse.json({ url: `/logos/${filename}` })
