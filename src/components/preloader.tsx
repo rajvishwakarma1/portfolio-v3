@@ -69,7 +69,7 @@ export function Preloader() {
                 <h1
                     style={{
                         fontFamily: "var(--font-geist-mono), monospace",
-                        fontSize: "clamp(4rem, 18vw, 14rem)",
+                        fontSize: "clamp(6rem, 18vw, 14rem)",
                         fontWeight: 700,
                         color: "#333333",
                         letterSpacing: "-0.02em",
@@ -86,7 +86,7 @@ export function Preloader() {
                     aria-hidden="true"
                     style={{
                         fontFamily: "var(--font-geist-mono), monospace",
-                        fontSize: "clamp(4rem, 18vw, 14rem)",
+                        fontSize: "clamp(6rem, 18vw, 14rem)",
                         fontWeight: 700,
                         color: "#ffffff",
                         letterSpacing: "-0.02em",
