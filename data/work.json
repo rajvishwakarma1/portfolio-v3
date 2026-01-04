@@ -7,7 +7,7 @@
       "role": "founding qa engineer",
       "period": "nov 2025 - present",
       "description": "building the future of mail 📬",
-      "longDescription": "leading qa at digital domi - figuring out features, fixing bugs, and everything in between",
+      "longDescription": "founding member owning product quality from early builds through production working closely with product and engineering to shape features fix issues and keep releases reliable",
       "tags": [
         "API testing (Swagger)",
         "Test automation",
@@ -33,9 +33,11 @@
             }
           ],
           "bullets": [
-            "Led end-to-end manual and automated QA across mobile apps, consumer web, business platforms, and support dashboards, ensuring stable and high-quality releases",
-            "Designed and executed test cases, regression cycles, and API validations while managing bugs, release notes, and changelogs to prevent production issues",
-            "Collaborated with cross functional teams to manage release notes, validate requirements, and ensure smooth, mishap free production releases"
+            "owned end to end QA across mobile apps consumer web internal dashboards and admin tools from initial development to production",
+            "planned and executed test cases regression cycles and API validations while tracking bugs and coordinating fixes across teams",
+            "worked directly with product and engineering to review requirements validate edge cases and catch risks early",
+            "managed release readiness including release notes changelogs and final sign off before production launches",
+            "helped establish QA workflows documentation and release practices as the product and team scaled"
           ]
         }
       ],
@@ -49,7 +51,7 @@
       "role": "automation engineer",
       "period": "apr 2025 - aug 2025",
       "description": "a better way to travel 🌏",
-      "longDescription": "worked as a freelance automation engineer and collaborated with a team of engineers and designers to ease visa interview scheduling",
+      "longDescription": "worked as a freelance automation engineer with a small startup team to simplify visa interview scheduling and related workflows",
       "tags": [
         "selenium",
         "playwright",
@@ -62,11 +64,12 @@
           "title": "",
           "links": [],
           "bullets": [
-            "Built a conversational chatbot for a Bangalore startup to automate interview scheduling",
-            "Developed phased guidance for form-filling and document submission using LLMs and backend APIs",
-            "Enabled personalized user responses by integrating application status and requirements into the chatbot",
-            "Automated repetitive tasks with SeleniumBase and PatchRight to streamline workflows",
-            "Collaborated with startup teams to design intuitive, user-friendly automation solutions"
+            "built a conversational chatbot to assist users with visa interview scheduling and application related queries",
+            "created guided flows for form filling and document submission using backend APIs and LLM based logic",
+            "integrated application status and requirements to generate contextual and personalized user responses",
+            "automated repetitive browser based workflows using SeleniumBase Playwright and PatchRight to reduce manual effort",
+            "supported API development and testing to ensure reliable end to end automation",
+            "collaborated closely with designers and engineers to keep solutions practical user friendly and aligned with real world use cases"
           ]
         }
       ]
@@ -79,7 +82,7 @@
       "role": "software development intern",
       "period": "jun 2023 - jul 2023",
       "description": "driving customer and partner loyalty through software 🤝",
-      "longDescription": "worked as an intern where i developed apis for dealer applications",
+      "longDescription": "worked on backend development for dealer and mobile applications with a focus on API design testing and release support",
       "tags": [
         "rest apis",
         "postman",
@@ -97,10 +100,10 @@
             }
           ],
           "bullets": [
-            "Developed API modules for mobile applications using Node.js and the Fastify framework",
-            "Built a new component to show summarized user reviews",
-            "Used Proxyman/Postman for endpoint comparison & optimization",
-            "Supported release cycles via Github"
+            "developed REST API modules for mobile and dealer applications using Node.js and the Fastify framework",
+            "built a backend component to aggregate and display summarized user reviews",
+            "tested and compared API endpoints using Postman and Proxyman to validate responses performance and consistency",
+            "assisted in release cycles by supporting version control reviews and deployments through GitHub"
           ]
         }
       ]
@@ -113,7 +116,7 @@
       "role": "founding full stack engineer",
       "period": "mar 2024 - sep 2024",
       "description": "talk to people who have been there 🎓",
-      "longDescription": "leading full stack engineering at mentiff building core features across backend and frontend and owning everything in between",
+      "longDescription": "founding member leading full stack engineering efforts building core platform features across backend and frontend and owning everything in between",
       "tags": [
         "Python Django",
         "React",
@@ -130,9 +133,11 @@
             }
           ],
           "bullets": [
-            "Led end to end development across backend and frontend for core platform features, contributing to scalable APIs and responsive user interfaces used by students and mentors",
-            "Designed, built, and integrated backend services using Python Django alongside frontend components in React, ensuring smooth data flow, performance, and reliability",
-            "Collaborated closely with product, design, and engineering teams to translate requirements into production ready features while debugging issues and improving overall system stability"
+            "led end to end development of core product features across backend and frontend supporting students and mentors on the platform",
+            "designed built and maintained backend services using Python and Django while developing responsive frontend components in React and TypeScript",
+            "ensured reliable data flow performance and system stability across web interfaces and APIs",
+            "worked closely with product and design teams to translate requirements into production ready features",
+            "debugged production issues and continuously improved system reliability and developer workflows"
           ]
         }
       ]
