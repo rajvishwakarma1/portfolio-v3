@@ -11,6 +11,8 @@ import { CustomCursor } from "../components/custom-cursor"
 import { ToolsNav } from "../components/tools-nav"
 import { BackspaceNavigation } from "../components/backspace-navigation"
 import { Preloader } from "../components/preloader"
+import { ScrollToTop } from "../components/scroll-to-top"
+import { MobileHeader } from "../components/mobile-header"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -59,6 +61,7 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
         <Preloader />
+        <ScrollToTop />
         <DocumentTitleChanger />
         <CustomCursor />
         <BackspaceNavigation />
@@ -67,6 +70,7 @@ export default function RootLayout({
         <ProjectsNav />
         <ToolsNav />
         <AmbientAudio />
+        <MobileHeader />
         <div className="max-w-3xl mx-auto px-4 py-8">
           <Navbar />
           {children}
