@@ -53,9 +53,9 @@ export default function ToolsPage() {
 
     return (
         <div className="animate-fade-in-up">
-            <header id="tools-intro" className="mb-12">
-                <h1 className="text-4xl font-bold mb-4 text-white flex items-center gap-3">
-                    <Asterisk className="w-8 h-8 text-accent" />
+            <header id="tools-intro" className="mb-8 sm:mb-12">
+                <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-white flex items-center gap-2 sm:gap-3">
+                    <Asterisk className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                     <ScrambleText text="tools" />
                 </h1>
                 <p className="text-gray-400 leading-relaxed">
@@ -69,10 +69,10 @@ export default function ToolsPage() {
                     const Icon = categoryIcons[category] || Code
                     return (
                         <section key={category} id={category}>
-                            <h2 className="text-xl font-semibold mb-6 text-white">{category}</h2>
-                            <div className="grid gap-4">
+                            <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-white">{category}</h2>
+                            <div className="grid gap-3 sm:gap-4">
                                 {tools.map((tool) => (
-                                    <div key={tool.name} className="group flex items-start gap-4 p-4 border border-neutral-800 hover:border-accent/50 transition-colors duration-200">
+                                    <div key={tool.name} className="group flex items-start gap-3 sm:gap-4 p-3 sm:p-4 border border-neutral-800 hover:border-accent/50 transition-colors duration-200">
                                         <Icon className="w-5 h-5 text-gray-400 mt-0.5" />
                                         <div>
                                             <h3 className="text-white font-medium group-hover:text-accent transition-colors duration-200">{tool.name}</h3>

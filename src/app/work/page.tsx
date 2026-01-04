@@ -8,7 +8,7 @@ export default function WorkPage() {
 
     return (
         <main className="animate-fade-in-up">
-            <h1 className="text-4xl font-bold mb-8 text-white">
+            <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-white">
                 <span className="text-accent mr-2">*</span>
                 <ScrambleText text="work" />
             </h1>
@@ -18,12 +18,12 @@ export default function WorkPage() {
                 opportunity to work with.
             </p>
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
                 {workItems.map((item) => (
                     <div key={item.slug} id={item.slug} className="group">
                         <Link href={`/work/${item.slug}`}>
-                            <div className="border border-neutral-800 rounded-lg p-6 hover:border-accent/50 transition-all duration-300">
-                                <div className="flex items-start gap-4">
+                            <div className="border border-neutral-800 rounded-lg p-4 sm:p-6 hover:border-accent/50 transition-all duration-300">
+                                <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
                                     {item.logo ? (
                                         <img
                                             src={item.logo}
@@ -36,7 +36,7 @@ export default function WorkPage() {
                                         </div>
                                     )}
                                     <div className="flex-1">
-                                        <h2 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-200">
+                                        <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-accent transition-colors duration-200">
                                             {item.title}
                                         </h2>
                                         <p className="text-sm text-gray-400 mt-1">
