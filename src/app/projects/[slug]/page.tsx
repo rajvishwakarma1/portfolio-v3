@@ -58,19 +58,14 @@ export default async function ProjectPage({ params }: Props) {
 
             {/* Header */}
             <div className="mb-8">
-                <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center text-lg font-bold text-white">
-                        {project.title.charAt(0).toUpperCase()}
-                    </div>
-                    <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-                        {project.title}
-                        {project.href && (
-                            <Link href={project.href} target="_blank">
-                                <ExternalLink className="w-5 h-5 text-gray-400 hover:text-accent transition-colors" />
-                            </Link>
-                        )}
-                    </h1>
-                </div>
+                <h1 className="text-3xl font-bold text-white flex items-center gap-2 mb-4">
+                    {project.title}
+                    {project.href && (
+                        <Link href={project.href} target="_blank">
+                            <ExternalLink className="w-5 h-5 text-gray-400 hover:text-accent transition-colors" />
+                        </Link>
+                    )}
+                </h1>
 
                 <p className="text-gray-400 mb-4">
                     {cleanRole} {period && `• ${period}`}
