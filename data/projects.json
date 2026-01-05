@@ -1,23 +1,46 @@
 {
   "items": [
     {
-      "slug": "mini-git",
-      "title": "mini-git",
-      "role": "creator (jul 2024)",
-      "description": "a simplified implementation of git built from scratch",
-      "longDescription": "built a simplified version of git to understand how version control systems work under the hood. implemented core commands like init, add, commit, and log.",
-      "href": "https://github.com/nexxeln/mini-git",
+      "slug": "portfolio-v2",
+      "title": "portfolio v2",
+      "role": "creator (dec 2024)",
+      "description": "second iteration of my personal portfolio",
+      "longDescription": "personal portfolio built using HTML, CSS, vanilla JavaScript, and custom animations",
+      "href": "",
       "tags": [
-        "go",
-        "sha-1"
+        "html",
+        "css",
+        "javascript"
       ],
       "links": [
         {
           "label": "github",
-          "href": "https://github.com/nexxeln/mini-git"
+          "href": "https://github.com/rajvishwakarma1/Raj-Updated-Portfolio"
         }
       ],
-      "livePreviewUrl": "",
+      "livePreviewUrl": "https://rajvishwakarma1.github.io/Raj-Updated-Portfolio/",
+      "youtubeUrl": "",
+      "diagrams": []
+    },
+    {
+      "slug": "portfolio-v1",
+      "title": "portfolio v1",
+      "role": "creator (sept 2022)",
+      "description": "first iteration of my personal portfolio",
+      "longDescription": "Personal portfolio built using HTML, CSS, and vanilla JavaScript with custom animations",
+      "href": "",
+      "tags": [
+        "html",
+        "css",
+        "javascript"
+      ],
+      "links": [
+        {
+          "label": "github",
+          "href": "https://github.com/rajvishwakarma1/Personal-Portfolio"
+        }
+      ],
+      "livePreviewUrl": "https://rajvishwakarma1.github.io/Personal-Portfolio/",
       "youtubeUrl": "",
       "diagrams": []
     }

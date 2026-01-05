@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ExternalLink, Maximize2 } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects"
 import { Metadata } from "next"
 
@@ -115,22 +115,13 @@ export default async function ProjectPage({ params }: Props) {
                 <div className="border-t border-neutral-800 pt-8 mb-8">
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold text-white">live preview</h2>
-                        <div className="flex items-center gap-2">
-                            <Link
-                                href={project.livePreviewUrl}
-                                target="_blank"
-                                className="p-2 text-gray-400 hover:text-accent transition-colors"
-                            >
-                                <Maximize2 className="w-4 h-4" />
-                            </Link>
-                            <Link
-                                href={project.livePreviewUrl}
-                                target="_blank"
-                                className="p-2 text-gray-400 hover:text-accent transition-colors"
-                            >
-                                <ExternalLink className="w-4 h-4" />
-                            </Link>
-                        </div>
+                        <Link
+                            href={project.livePreviewUrl}
+                            target="_blank"
+                            className="p-2 text-gray-400 hover:text-accent transition-colors"
+                        >
+                            <ExternalLink className="w-4 h-4" />
+                        </Link>
                     </div>
                     <div className="relative w-full aspect-video border border-neutral-800 rounded-lg overflow-hidden bg-neutral-900">
                         <iframe
