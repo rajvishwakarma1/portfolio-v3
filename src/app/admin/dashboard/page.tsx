@@ -39,6 +39,7 @@ interface ProjectItem {
     tags: string[]
     links: ProjectLink[]
     livePreviewUrl: string
+    demoMedia: string
     youtubeUrl: string
     diagrams: string[]
 }
@@ -74,7 +75,9 @@ export default function AdminDashboard() {
     const [modalType, setModalType] = useState<ModalType>(null)
     const [editingItem, setEditingItem] = useState<any>(null)
     const [uploading, setUploading] = useState(false)
+    const [demoUploading, setDemoUploading] = useState(false)
     const fileInputRef = useRef<HTMLInputElement>(null)
+    const demoMediaInputRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
 
     // Work form state
@@ -87,7 +90,7 @@ export default function AdminDashboard() {
 
     // Project form state
     const [projectForm, setProjectForm] = useState({
-        title: "", role: "", description: "", longDescription: "", href: "", tags: "", livePreviewUrl: "", youtubeUrl: "",
+        title: "", role: "", description: "", longDescription: "", href: "", tags: "", livePreviewUrl: "", demoMedia: "", youtubeUrl: "",
     })
 
     // Project links state
@@ -180,6 +183,27 @@ export default function AdminDashboard() {
             console.error("Upload failed:", error)
         } finally {
             setUploading(false)
+        }
+    }
+
+    const handleDemoMediaUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]
+        if (!file) return
+
+        setDemoUploading(true)
+        const formData = new FormData()
+        formData.append("file", file)
+
+        try {
+            const res = await fetch("/api/upload", { method: "POST", body: formData })
+            const data = await res.json()
+            if (data.url) {
+                setProjectForm({ ...projectForm, demoMedia: data.url })
+            }
+        } catch (error) {
+            console.error("Demo media upload failed:", error)
+        } finally {
+            setDemoUploading(false)
         }
     }
 
@@ -356,12 +380,12 @@ export default function AdminDashboard() {
             setProjectForm({
                 title: item.title, role: item.role, description: item.description,
                 longDescription: item.longDescription || "", href: item.href, tags: item.tags.join(", "),
-                livePreviewUrl: item.livePreviewUrl || "", youtubeUrl: item.youtubeUrl || "",
+                livePreviewUrl: item.livePreviewUrl || "", demoMedia: item.demoMedia || "", youtubeUrl: item.youtubeUrl || "",
             })
             setProjectLinks(item.links || [])
         } else {
             setEditingItem(null)
-            setProjectForm({ title: "", role: "", description: "", longDescription: "", href: "", tags: "", livePreviewUrl: "", youtubeUrl: "" })
+            setProjectForm({ title: "", role: "", description: "", longDescription: "", href: "", tags: "", livePreviewUrl: "", demoMedia: "", youtubeUrl: "" })
             setProjectLinks([])
         }
         setModalType("project")
@@ -765,6 +789,49 @@ export default function AdminDashboard() {
                                             </button>
                                         </div>
                                     ))}
+                                </div>
+
+                                {/* Demo Media Upload */}
+                                <div className="border-t border-neutral-800 pt-5">
+                                    <label className="block text-sm text-gray-400 mb-2">demo media (gif, svg, mp4, webm)</label>
+                                    <div className="flex items-center gap-4">
+                                        {projectForm.demoMedia ? (
+                                            <div className="relative w-32 h-20 rounded-lg overflow-hidden bg-neutral-800">
+                                                {/\.(mp4|webm)$/i.test(projectForm.demoMedia) ? (
+                                                    <video src={projectForm.demoMedia} className="w-full h-full object-cover" muted autoPlay loop />
+                                                ) : (
+                                                    <img src={projectForm.demoMedia} alt="" className="w-full h-full object-cover" />
+                                                )}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setProjectForm({ ...projectForm, demoMedia: "" })}
+                                                    className="absolute top-1 right-1 p-1 bg-black/50 rounded text-white hover:bg-red-500"
+                                                >
+                                                    <X className="w-3 h-3" />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="w-32 h-20 rounded-lg bg-neutral-800 flex items-center justify-center">
+                                                <ImageIcon className="w-6 h-6 text-gray-500" />
+                                            </div>
+                                        )}
+                                        <input
+                                            type="file"
+                                            ref={demoMediaInputRef}
+                                            onChange={handleDemoMediaUpload}
+                                            accept=".gif,.svg,.mp4,.webm,.png,.jpg,.jpeg,.webp"
+                                            className="hidden"
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={() => demoMediaInputRef.current?.click()}
+                                            disabled={demoUploading}
+                                            className="px-4 py-2 border border-neutral-700 rounded-lg text-gray-400 hover:text-white hover:border-neutral-600 flex items-center gap-2"
+                                        >
+                                            <Upload className="w-4 h-4" /> {demoUploading ? "uploading..." : "upload demo"}
+                                        </button>
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">or enter a URL below for live preview</p>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">

@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ExternalLink } from "lucide-react"
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects"
+import { DemoMediaPlayer } from "@/components/demo-media-player"
 import { Metadata } from "next"
 
 type Props = {
@@ -71,7 +72,24 @@ export default async function ProjectPage({ params }: Props) {
                     {cleanRole} {period && `• ${period}`}
                 </p>
 
-                <p className="text-gray-300 mb-6">{project.longDescription || project.description}</p>
+                {(() => {
+                    const fullText = project.longDescription || project.description
+                    const lines = fullText.split('\n').filter(line => line.trim())
+
+                    if (lines.length > 1) {
+                        return (
+                            <ul className="text-gray-300 mb-6 space-y-2">
+                                {lines.map((line, index) => (
+                                    <li key={index} className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                                        <span>{line.trim()}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )
+                    }
+                    return <p className="text-gray-300 mb-6">{fullText}</p>
+                })()}
 
                 {/* Tags */}
                 {project.tags && project.tags.length > 0 && (
@@ -105,26 +123,36 @@ export default async function ProjectPage({ params }: Props) {
                 )}
             </div>
 
-            {/* Live Preview */}
-            {project.livePreviewUrl && (
+            {/* Demo / Preview */}
+            {(project.demoMedia || project.livePreviewUrl) && (
                 <div className="border-t border-neutral-800 pt-8 mb-8">
                     <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-xl font-bold text-white">live preview</h2>
-                        <Link
-                            href={project.livePreviewUrl}
-                            target="_blank"
-                            className="p-2 text-gray-400 hover:text-accent transition-colors"
-                        >
-                            <ExternalLink className="w-4 h-4" />
-                        </Link>
+                        <h2 className="text-xl font-bold text-white">
+                            {project.demoMedia ? "demo" : "live preview"}
+                        </h2>
+                        {project.livePreviewUrl && (
+                            <Link
+                                href={project.livePreviewUrl}
+                                target="_blank"
+                                className="p-2 text-gray-400 hover:text-accent transition-colors"
+                            >
+                                <ExternalLink className="w-4 h-4" />
+                            </Link>
+                        )}
                     </div>
                     <div className="relative w-full aspect-video border border-neutral-800 rounded-lg overflow-hidden bg-neutral-900">
-                        <iframe
-                            src={project.livePreviewUrl}
-                            className="w-full h-full"
-                            title="Live Preview"
-                            sandbox="allow-scripts allow-same-origin"
-                        />
+                        {project.demoMedia ? (
+                            <DemoMediaPlayer src={project.demoMedia} className="w-full h-full" />
+                        ) : project.livePreviewUrl && /\.(gif|svg|png|jpg|jpeg|webp|mp4|webm)$/i.test(project.livePreviewUrl) ? (
+                            <DemoMediaPlayer src={project.livePreviewUrl} className="w-full h-full" />
+                        ) : (
+                            <iframe
+                                src={project.livePreviewUrl}
+                                className="w-full h-full"
+                                title="Live Preview"
+                                sandbox="allow-scripts allow-same-origin"
+                            />
+                        )}
                     </div>
                 </div>
             )}

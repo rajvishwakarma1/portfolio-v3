@@ -19,6 +19,7 @@
         }
       ],
       "livePreviewUrl": "https://rajvishwakarma1.github.io/Raj-Updated-Portfolio/",
+      "demoMedia": "",
       "youtubeUrl": "",
       "diagrams": []
     },
@@ -41,6 +42,36 @@
         }
       ],
       "livePreviewUrl": "https://rajvishwakarma1.github.io/Personal-Portfolio/",
+      "demoMedia": "",
+      "youtubeUrl": "",
+      "diagrams": []
+    },
+    {
+      "slug": "laggy-npm-package",
+      "title": "laggy",
+      "role": "creator (dec 2025 - present)",
+      "description": "cli tool to simulate bad networks and inject chaos into test environments",
+      "longDescription": "enables realistic network failure testing for any Node.js app or test runner\nsupports reproducible chaos with seedable randomness\nprovides real-world network presets (slow-3g, flaky, lie-fi, etc.)\nintercepts both fetch and http/https requests for comprehensive coverage\nclean CLI and programmatic API, easy integration",
+      "href": "",
+      "tags": [
+        "typescript",
+        "vitest",
+        "node.js",
+        "cli",
+        "testing"
+      ],
+      "links": [
+        {
+          "label": "npm",
+          "href": "https://www.npmjs.com/package/laggy"
+        },
+        {
+          "label": "github",
+          "href": "https://github.com/rajvishwakarma1/laggy"
+        }
+      ],
+      "livePreviewUrl": "",
+      "demoMedia": "/logos/1767627188921-t84kh.svg",
       "youtubeUrl": "",
       "diagrams": []
     }

@@ -17,6 +17,7 @@ export interface ProjectItem {
     tags: string[]
     links: ProjectLink[]
     livePreviewUrl: string
+    demoMedia: string // Uploaded demo media (GIF/SVG/MP4/WebM)
     youtubeUrl: string
     diagrams: string[]
 }
