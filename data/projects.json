@@ -20,27 +20,6 @@
       "livePreviewUrl": "",
       "youtubeUrl": "",
       "diagrams": []
-    },
-    {
-      "slug": "text2regex",
-      "title": "text2regex",
-      "role": "creator (jul 2025)",
-      "description": "convert natural language text into validated regular expressions",
-      "longDescription": "a cli tool that uses llms to convert natural language descriptions into regular expressions. includes self-correction to ensure the generated regex is valid.",
-      "href": "https://github.com/nexxeln/text2regex",
-      "tags": [
-        "typescript",
-        "openai"
-      ],
-      "links": [
-        {
-          "label": "github",
-          "href": "https://github.com/nexxeln/text2regex"
-        }
-      ],
-      "livePreviewUrl": "https://www.stormej.me/projects/turi",
-      "youtubeUrl": "",
-      "diagrams": []
     }
   ]
 }

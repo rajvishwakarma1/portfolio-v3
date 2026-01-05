@@ -15,6 +15,7 @@ export default function HomePage() {
     role: p.role.replace(/\s*\(.+\)$/, ""), // Remove date portion from role
     description: p.description,
     href: p.href,
+    slug: p.slug, // For internal navigation
   }))
 
   return (

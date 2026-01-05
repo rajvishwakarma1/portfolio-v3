@@ -7,6 +7,7 @@ export type Item = {
   role: string
   period?: string
   description: string
+  slug?: string // For internal navigation to /projects/{slug}
 }
 
 type SectionListProps = {
@@ -30,19 +31,24 @@ export function SectionList({
         <Folder className="w-5 h-5 mr-2" /> {title}
       </h2>
       <div className="space-y-6 sm:space-y-8">
-        {items.map((item, index) => (
-          <div key={item.title} className="group">
-            <Link href={item.href} target="_blank">
-              <h3 className="text-lg sm:text-xl font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200">
-                {item.title}
-              </h3>
-              <p className="text-sm text-gray-400 mb-2">
-                {item.role} {item.period && `(${item.period})`}
-              </p>
-              <p className="text-gray-300">{item.description}</p>
-            </Link>
-          </div>
-        ))}
+        {items.map((item, index) => {
+          // Use internal routing if slug is available, otherwise external link
+          const linkHref = item.slug ? `/projects/${item.slug}` : item.href
+          const isExternal = !item.slug
+          return (
+            <div key={item.title} className="group">
+              <Link href={linkHref} {...(isExternal ? { target: "_blank" } : {})}>
+                <h3 className="text-lg sm:text-xl font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-400 mb-2">
+                  {item.role} {item.period && `(${item.period})`}
+                </p>
+                <p className="text-gray-300">{item.description}</p>
+              </Link>
+            </div>
+          )
+        })}
       </div>
       {viewAllHref && (
         <Link
