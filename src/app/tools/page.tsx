@@ -1,4 +1,4 @@
-import { Asterisk, Monitor, Code, Terminal, Palette, Globe, Headphones, Coffee } from "lucide-react"
+import { Monitor, Code, Terminal, Palette, Globe, Headphones, Coffee } from "lucide-react"
 import fs from "fs"
 import path from "path"
 import { ScrambleText } from "@/components/scramble-text"
@@ -54,8 +54,7 @@ export default function ToolsPage() {
     return (
         <div className="animate-fade-in-up">
             <header id="tools-intro" className="mb-8 sm:mb-12">
-                <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-white flex items-center gap-2 sm:gap-3">
-                    <Asterisk className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+                <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-white">
                     <ScrambleText text="tools" />
                 </h1>
                 <p className="text-gray-400 leading-relaxed">
