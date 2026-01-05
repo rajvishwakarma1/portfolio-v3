@@ -20,7 +20,11 @@ export function DemoMediaPlayer({ src, className = "" }: DemoMediaPlayerProps) {
     useEffect(() => {
         // Check if video has audio tracks
         if (isVideo && videoRef.current) {
-            const video = videoRef.current
+            const video = videoRef.current as HTMLVideoElement & {
+                mozHasAudio?: boolean
+                webkitAudioDecodedByteCount?: number
+                audioTracks?: { length: number }
+            }
             const checkAudio = () => {
                 // Check for audio tracks in the video
                 if (video.mozHasAudio !== undefined) {
