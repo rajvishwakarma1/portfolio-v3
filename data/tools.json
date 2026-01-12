@@ -32,10 +32,6 @@
       {
         "name": "Raycast",
         "description": "launcher and productivity tool"
-      },
-      {
-        "name": "CleanShot X",
-        "description": "screenshots and screen recording"
       }
     ],
     "hardware": [
