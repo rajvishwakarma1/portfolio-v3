@@ -1,4 +1,4 @@
-import { ScrambleText } from "@/components/scramble-text"
+import { BlurRevealText } from "@/components/blur-reveal-text"
 import Link from "next/link"
 import { Metadata } from "next"
 import { getWorkItems } from "@/lib/work"
@@ -9,7 +9,7 @@ export default function WorkPage() {
     return (
         <main className="animate-fade-in-up">
             <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-white">
-                <ScrambleText text="work" />
+                <BlurRevealText text="work" />
             </h1>
 
             <p className="text-gray-400 mb-12 leading-relaxed">

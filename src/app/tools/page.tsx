@@ -1,7 +1,7 @@
 import { Monitor, Code, Terminal, Palette, Globe, Headphones, Coffee } from "lucide-react"
 import fs from "fs"
 import path from "path"
-import { ScrambleText } from "@/components/scramble-text"
+import { BlurRevealText } from "@/components/blur-reveal-text"
 
 export const dynamic = 'force-dynamic'
 
@@ -55,7 +55,7 @@ export default function ToolsPage() {
         <div className="animate-fade-in-up">
             <header id="tools-intro" className="mb-8 sm:mb-12">
                 <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-white">
-                    <ScrambleText text="tools" />
+                    <BlurRevealText text="tools" />
                 </h1>
                 <p className="text-gray-400 leading-relaxed">
                     the apps, services, and gear i use daily to build products and stay productive.

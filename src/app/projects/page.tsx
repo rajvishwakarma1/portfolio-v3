@@ -1,4 +1,4 @@
-import { ScrambleText } from "@/components/scramble-text"
+import { BlurRevealText } from "@/components/blur-reveal-text"
 import { ProjectCard } from "@/components/project-card"
 import { Metadata } from "next"
 import { getProjects } from "@/lib/projects"
@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   return (
     <main className="animate-fade-in-up">
       <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-white">
-        <ScrambleText text="projects" />
+        <BlurRevealText text="projects" />
       </h1>
 
       <p className="text-gray-400 mb-12 leading-relaxed">

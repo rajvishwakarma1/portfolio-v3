@@ -1,4 +1,4 @@
-import { ScrambleText } from "@/components/scramble-text"
+import { BlurRevealText } from "@/components/blur-reveal-text"
 import { PostsList } from "@/components/posts-list"
 import { getPosts } from "@/lib/blog"
 import { Metadata } from "next"
@@ -13,7 +13,7 @@ export default async function BlogPage() {
     <>
       <main className="animate-fade-in-up relative">
         <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-white">
-          <ScrambleText text="blog" />
+          <BlurRevealText text="blog" />
         </h1>
 
         <p className="hidden sm:block text-sm text-gray-400 mb-8">

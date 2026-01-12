@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { ScrambleTextHover } from "@/components/scramble-text-hover"
+import { BlurMorphText } from "@/components/blur-morph-text"
 import { MapPin, Building2, FileText, CornerDownLeft } from "lucide-react"
 
 function LinkWithPreview({ href, children }: { href: string; children: React.ReactNode }) {
@@ -54,7 +54,7 @@ export function Header() {
     <header id="header" className="mb-12 sm:mb-16 space-y-4">
       <h1 className="text-2xl sm:text-4xl font-bold mb-4 animate-fade-in text-white">
         <span className="inline-block">
-          <ScrambleTextHover text="raj vishwakarma" hoverText="aka zion" />
+          <BlurMorphText text="raj vishwakarma" hoverText="aka zion" />
         </span>
       </h1>
       <div className="flex flex-col gap-2 text-gray-400">
