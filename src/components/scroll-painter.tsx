@@ -24,11 +24,12 @@ export function ScrollPainter() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [pathname])
 
-    // Hide on admin, project detail pages, and blog detail pages
+    // Hide on admin, project detail pages, blog detail pages, and 404 page
     // Show only on main pages, not on /projects/[slug] or /blog/[slug]
     const isProjectDetailPage = pathname?.startsWith("/projects/") && pathname !== "/projects"
     const isBlogDetailPage = pathname?.startsWith("/blog/") && pathname !== "/blog"
-    if (pathname?.startsWith("/admin") || isProjectDetailPage || isBlogDetailPage) {
+    const isNotFoundPage = typeof document !== "undefined" && document.querySelector('[data-page="not-found"]')
+    if (pathname?.startsWith("/admin") || isProjectDetailPage || isBlogDetailPage || isNotFoundPage) {
         return null
     }
 

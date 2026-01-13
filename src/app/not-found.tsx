@@ -114,7 +114,7 @@ export default function NotFound() {
   }, [])
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center">
+    <div data-page="not-found" className="fixed inset-0 flex items-center justify-center bg-background overflow-hidden z-50">
       <div className="space-y-8 text-center max-w-lg mx-auto px-4">
         <div className="space-y-4">
           <h1 className="text-8xl sm:text-9xl font-bold text-accent opacity-80">

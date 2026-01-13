@@ -49,8 +49,12 @@ export function Navbar() {
         return () => window.removeEventListener("keydown", handleKeyPress)
     }, [router])
 
-    // Hide on admin and dashboard pages
-    if (pathname?.startsWith("/admin") || pathname?.startsWith("/dashboard")) {
+    // Hide on admin, dashboard, and 404 pages
+    const knownPaths = ["/", "/work", "/blog", "/projects", "/tools", "/admin", "/dashboard"]
+    const isKnownPath = knownPaths.some(path =>
+        path === "/" ? pathname === "/" : pathname?.startsWith(path)
+    )
+    if (!isKnownPath || pathname?.startsWith("/admin") || pathname?.startsWith("/dashboard")) {
         return null
     }
 

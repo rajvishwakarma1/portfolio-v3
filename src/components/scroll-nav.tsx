@@ -104,8 +104,12 @@ export function ScrollNav() {
         }
     }
 
-    // Hide on admin, blog, projects, work, and tools pages
-    if (pathname?.startsWith("/admin") || pathname?.startsWith("/blog") || pathname?.startsWith("/projects") || pathname?.startsWith("/work") || pathname?.startsWith("/tools")) {
+    // Hide on admin, blog, projects, work, tools pages, and 404 pages (unknown paths)
+    const knownPaths = ["/", "/work", "/blog", "/projects", "/tools", "/admin", "/dashboard"]
+    const isKnownPath = knownPaths.some(path =>
+        path === "/" ? pathname === "/" : pathname?.startsWith(path)
+    )
+    if (!isKnownPath || pathname?.startsWith("/admin") || pathname?.startsWith("/blog") || pathname?.startsWith("/projects") || pathname?.startsWith("/work") || pathname?.startsWith("/tools")) {
         return null
     }
 

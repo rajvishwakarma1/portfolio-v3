@@ -70,8 +70,12 @@ export function MobileHeader() {
         return "h"
     }
 
-    // Hide on admin pages
-    if (pathname?.startsWith("/admin")) {
+    // Hide on admin pages and 404 pages (unknown paths)
+    const knownPaths = ["/", "/work", "/blog", "/projects", "/tools", "/admin", "/dashboard"]
+    const isKnownPath = knownPaths.some(path =>
+        path === "/" ? pathname === "/" : pathname?.startsWith(path)
+    )
+    if (!isKnownPath || pathname?.startsWith("/admin")) {
         return null
     }
 
