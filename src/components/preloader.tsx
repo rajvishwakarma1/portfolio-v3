@@ -1,15 +1,23 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { usePathname } from "next/navigation"
 import gsap from "gsap"
 
 export function Preloader() {
     const loaderRef = useRef<HTMLDivElement>(null)
     const [isLoading, setIsLoading] = useState(true)
     const [progress, setProgress] = useState(0)
+    const pathname = usePathname()
+
+    // Skip preloader for admin pages
+    const isAdminPage = pathname?.startsWith("/admin")
 
     useEffect(() => {
-        if (!loaderRef.current) return
+        if (!loaderRef.current || isAdminPage) {
+            setIsLoading(false)
+            return
+        }
 
         let currentProgress = 0
 
@@ -39,9 +47,9 @@ export function Preloader() {
         setTimeout(animateProgress, 50)
 
         return () => { }
-    }, [])
+    }, [isAdminPage])
 
-    if (!isLoading) return null
+    if (!isLoading || isAdminPage) return null
 
     // Calculate fill position (inverted: 100% progress = 0% from top)
     const fillFromTop = 100 - progress

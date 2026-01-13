@@ -3,17 +3,11 @@
 import { useState, useEffect, useRef } from "react"
 import { usePathname } from "next/navigation"
 
-const funFacts = [
+// Fallback facts in case API fails
+const fallbackFacts = [
     "🎮 I've reported more bugs than solved leetcode problems",
     "☕ My code runs on chai, not coffee",
     "🌙 80% of my best ideas come after midnight debugging sessions",
-    "🐛 I name my test variables 'foo', 'bar', and 'baz' unironically",
-    "🎵 I listen to lo-fi beats while deploying to production on Fridays",
-    "🔧 I broke production once... okay, maybe more than once",
-    "📚 I have many unfinished side projects (this one is finished though!)",
-    "🚀 My first website was hosted on a free subdomain",
-    "💡 I still google 'how to center a div' sometimes",
-    "🎯 I believe tabs are superior to spaces (fight me)",
 ]
 
 export function BlurMorphText({
@@ -30,10 +24,25 @@ export function BlurMorphText({
     const [clickCount, setClickCount] = useState(0)
     const [showModal, setShowModal] = useState(false)
     const [currentFact, setCurrentFact] = useState("")
+    const [funFacts, setFunFacts] = useState<string[]>(fallbackFacts)
     const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | null>(null)
     const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null)
     const containerRef = useRef<HTMLSpanElement>(null)
     const pathname = usePathname()
+
+    // Fetch fun facts from API
+    useEffect(() => {
+        fetch("/api/fun-facts")
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.funFacts && data.funFacts.length > 0) {
+                    setFunFacts(data.funFacts)
+                }
+            })
+            .catch(() => {
+                // Keep fallback facts
+            })
+    }, [])
 
     // Re-trigger reveal animation on navigation
     useEffect(() => {

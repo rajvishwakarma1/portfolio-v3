@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { Plus, Trash2, Edit2, LogOut, ExternalLink, Briefcase, FileText, FolderOpen, Link2, X, Upload, Image as ImageIcon, Wrench } from "lucide-react"
+import { Plus, Trash2, Edit2, LogOut, ExternalLink, Briefcase, FileText, FolderOpen, Link2, X, Upload, Image as ImageIcon, Wrench, Sparkles } from "lucide-react"
 
 interface WorkProject {
     title: string
@@ -433,6 +433,9 @@ export default function AdminDashboard() {
                     <button onClick={() => setActiveTab("tools")} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${activeTab === "tools" ? "bg-accent text-white" : "text-gray-400 hover:text-white hover:bg-neutral-800"}`}>
                         <Wrench className="w-5 h-5" /> tools
                     </button>
+                    <Link href="/admin/fun-facts" className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors text-gray-400 hover:text-white hover:bg-neutral-800">
+                        <Sparkles className="w-5 h-5" /> fun facts
+                    </Link>
                 </nav>
 
                 <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white transition-colors">
