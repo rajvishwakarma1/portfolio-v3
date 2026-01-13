@@ -15,6 +15,7 @@ import { Preloader } from "../components/preloader"
 import { ScrollToTop } from "../components/scroll-to-top"
 import { MobileHeader } from "../components/mobile-header"
 import { PostHogProvider } from "../components/posthog-provider"
+import { EasterEggProvider } from "../components/easter-egg-provider"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -64,24 +65,27 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <AudioProvider>
-            <Preloader />
-            <ScrollToTop />
-            <DocumentTitleChanger />
-            <CustomCursor />
-            <BackspaceNavigation />
-            <ScrollPainter />
-            <ScrollNav />
-            <ProjectsNav />
-            <ToolsNav />
-            <AmbientAudio />
-            <MobileHeader />
-            <div className="max-w-3xl mx-auto px-4 py-8">
-              <Navbar />
-              {children}
-            </div>
+            <EasterEggProvider>
+              <Preloader />
+              <ScrollToTop />
+              <DocumentTitleChanger />
+              <CustomCursor />
+              <BackspaceNavigation />
+              <ScrollPainter />
+              <ScrollNav />
+              <ProjectsNav />
+              <ToolsNav />
+              <AmbientAudio />
+              <MobileHeader />
+              <div className="max-w-3xl mx-auto px-4 py-8">
+                <Navbar />
+                {children}
+              </div>
+            </EasterEggProvider>
           </AudioProvider>
         </PostHogProvider>
       </body>
     </html>
   )
 }
+
