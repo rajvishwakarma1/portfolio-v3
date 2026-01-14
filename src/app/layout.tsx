@@ -16,6 +16,7 @@ import { ScrollToTop } from "../components/scroll-to-top"
 import { MobileHeader } from "../components/mobile-header"
 import { PostHogProvider } from "../components/posthog-provider"
 import { EasterEggProvider } from "../components/easter-egg-provider"
+import { SelectionHint } from "../components/selection-hint"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
               <ToolsNav />
               <AmbientAudio />
               <MobileHeader />
+              <SelectionHint />
               <div className="max-w-3xl mx-auto px-4 py-8">
                 <Navbar />
                 {children}

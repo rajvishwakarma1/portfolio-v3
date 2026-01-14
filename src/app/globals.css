@@ -17,8 +17,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   text-rendering: optimizeLegibility;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
 /* Enable GPU acceleration for fixed positioned elements */
@@ -137,4 +135,21 @@ html::-webkit-scrollbar {
 
 .github-calendar-container::-webkit-scrollbar-thumb:hover {
   background-color: #444;
+}
+
+/* Selection hint fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
 }
