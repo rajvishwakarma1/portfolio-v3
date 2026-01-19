@@ -15,7 +15,7 @@ import { Preloader } from "../components/preloader"
 import { ScrollToTop } from "../components/scroll-to-top"
 import { MobileHeader } from "../components/mobile-header"
 import { PostHogProvider } from "../components/posthog-provider"
-import { EasterEggProvider } from "../components/easter-egg-provider"
+
 import { SelectionHint } from "../components/selection-hint"
 
 const geistMono = Geist_Mono({
@@ -66,7 +66,7 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <AudioProvider>
-            <EasterEggProvider>
+            <>
               <Preloader />
               <ScrollToTop />
               <DocumentTitleChanger />
@@ -83,7 +83,7 @@ export default function RootLayout({
                 <Navbar />
                 {children}
               </div>
-            </EasterEggProvider>
+            </>
           </AudioProvider>
         </PostHogProvider>
       </body>
